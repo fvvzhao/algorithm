@@ -2,7 +2,7 @@
 #include <stdint.h>
 #include <inttypes.h>
 
-void heapify(int arr[], int n, uint32_t i);
+void heapify(int arr[], int n, int i);
 void heap_sort(int arr[], int n);
 void print_array(int arr[], int n);
 
@@ -17,7 +17,7 @@ int main() {
   return 0;
 }
 
-void heapify(int arr[], int n, uint32_t i) {
+void heapify(int arr[], int n, int i) {
   int largest = i;
   int left = 2 * i + 1;
   int right = 2 * i + 2;
@@ -36,10 +36,10 @@ void heapify(int arr[], int n, uint32_t i) {
 }
 
 void heap_sort(int arr[], int n) {
-  for (uint32_t i = n / 2 - 1; i >= 0; i--) {
+  for (int i = n / 2 - 1; i >= 0; i--) {
     heapify(arr, n, i);
   }
-  for (uint32_t i = n - 1; i > 0; i--) {
+  for (int i = n - 1; i > 0; i--) {
     int temp = arr[i];
     arr[i] = arr[0];
     arr[0] = temp;
