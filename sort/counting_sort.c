@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <inttypes.h>
+#include <stdlib.h>
 
 void counting_sort(int arr[], int n);
 void print_array(int arr[], int n);
@@ -23,7 +24,10 @@ void counting_sort(int arr[], int n) {
       max = arr[i];
     }
   }
-  int count[max + 1] = {0};
+  int* count = (int*)malloc(sizeof(int) * (max + 1));
+  for (uint32_t i = 0; i < max + 1; i++) {
+    count[i] = 0;
+  }
 
   // 在count数组中统计每个元素的个数
   for (uint32_t i = 0; i < n; i++) {
@@ -32,11 +36,11 @@ void counting_sort(int arr[], int n) {
 
   // 计算前缀和
   for (uint32_t i = 1; i < max + 1; i++) {
-    count[i] += coutn[i - 1];
+    count[i] += count[i - 1];
   }
 
-  int result[n] = {0};
-  for (uint32_t i = n - 1; i >= 0; i--) {
+  int* result = (int*)malloc(sizeof(int) * n);
+  for (int i = n - 1; i >= 0; i--) {
     result[count[arr[i]] - 1] = arr[i];
     count[arr[i]]--;
   }
