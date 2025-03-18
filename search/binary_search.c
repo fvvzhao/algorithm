@@ -3,7 +3,7 @@
 int binary_search(int arr[], int n, int target);
 
 int main() {
-  int arr[] = {5, 3, 4, 1, 2};
+  int arr[] = {1, 2, 3, 4, 5};
   int n = sizeof(arr) / sizeof(int);
   int number;
   puts("请输入你想寻找的元素：");
