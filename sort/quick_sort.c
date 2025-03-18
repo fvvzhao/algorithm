@@ -11,7 +11,7 @@ int main() {
   int n = sizeof(arr) / sizeof(int);
   puts("original array: ");
   print_array(arr, n);
-  quick_sort(arr, n);
+  quick_sort(arr, 0, n - 1);
   puts("\nsorted array: ");
   print_array(arr, n);
   return 0;
