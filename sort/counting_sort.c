@@ -48,6 +48,9 @@ void counting_sort(int arr[], int n) {
   for (uint32_t i = 0; i < n; i++) {
     arr[i] = result[i];
   }
+
+  free(count);
+  free(result);
 }
 
 void print_array(int arr[], int n) {
